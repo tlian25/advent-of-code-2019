@@ -11,7 +11,7 @@ using namespace std;
 auto read_input() {
     string line;
     deque<int> lines;
-    ifstream input("./inputs/day02_input.txt");
+    ifstream input("inputs/day02_input.txt");
     while (getline(input, line, ',')) {
         lines.push_back(stoi(line));
     }

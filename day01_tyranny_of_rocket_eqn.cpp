@@ -10,7 +10,7 @@ using namespace std;
 auto read_input() {
     string line;
     vector<int> lines;
-    ifstream input("./inputs/day01_input.txt");
+    ifstream input("inputs/day01_input.txt");
     while (getline(input, line)) {
         lines.push_back(stoi(line));
     }
