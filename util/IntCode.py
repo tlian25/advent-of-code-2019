@@ -13,6 +13,7 @@ class IntCode:
         self.inputs = deque(inputs)
         self.outputs = deque()
         self.relative_base = 0
+        self.ended = False
 
         
     def run(self) -> bool:
@@ -23,6 +24,8 @@ class IntCode:
             except AwaitInput as e:
                 self.log(e)
                 return False
+            
+        self.ended = True
         return True 
 
 
@@ -178,12 +181,15 @@ class IntCode:
         else:
             self.progoverflow[idx] = val
         
-    def get_outputs(self) -> List[int]:
+    def get_outputs(self) -> deque:
         return self.outputs
 
     def add_inputs(self, *vals:List[int]) -> None:
         for v in vals:
             self.inputs.append(v)
+            
+    def is_ended(self) -> bool:
+        return self.is_ended
 
     def log(self, *args):
         if self.log_enabled:
