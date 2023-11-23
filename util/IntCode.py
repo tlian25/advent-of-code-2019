@@ -184,6 +184,9 @@ class IntCode:
     def get_outputs(self) -> deque:
         return self.outputs
 
+    def pop_output(self) -> int:
+        return self.outputs.popleft()
+
     def add_inputs(self, *vals:List[int]) -> None:
         for v in vals:
             self.inputs.append(v)
